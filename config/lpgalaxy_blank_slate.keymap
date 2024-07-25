@@ -27,40 +27,40 @@
 / {
     chosen {
        zmk,matrix_transform =
-#ifdef TBLE_DUAL_2U
+          #ifdef TBLE_DUAL_2U
                        &dual_2u_transform;
-#elif defined(TBLE_MIT)
+          #elif defined(TBLE_MIT)
                        &mit_transform;
-#else
+          #else
                        &ortho_transform;
-#endif
+          #endif
     };
 
     macros {
       ZMK_MACRO(thumbs_up,
-		wait-ms = <1>;
-		tap-ms = <5>;
-                bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
-		)
+		      wait-ms = <1>;
+		      tap-ms = <5>;
+          bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
+		  )
     };
     
     tap_dances {
     	shifty: shift_caps_word {
-		compatible = "zmk,behavior-tap-dance";
-		label = "TD_SHIFTY";
-		#binding-cells = <0>;
-		tapping-term-ms = <150>;
-		bindings = <&kp LSHFT>, <&caps_word>;
-	};
+		    compatible = "zmk,behavior-tap-dance";
+		    label = "TD_SHIFTY";
+		    #binding-cells = <0>;
+		    tapping-term-ms = <150>;
+		    bindings = <&kp LSHFT>, <&caps_word>;
+	    };
     };
 
 // Conditional layer only when we have less thumb keys
 #ifdef TBLE_DUAL_2U
     cond_layers {
         compatible = "zmk,conditional-layers";
-	tri {
-	    if-layers = <RAISE LOWER>;
-	    then-layer = <ADJUST>;
+	      tri {
+	        if-layers = <RAISE LOWER>;
+	        then-layer = <ADJUST>;
         };
     };
 #endif
@@ -92,7 +92,7 @@
             label = "Raise";
             bindings = <
 &kp GRAVE  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5   &kp N6   &kp N7     &kp N8      &kp N9       &kp N0     &trans
-&kp DEL    &trans   &trans   &trans   &trans   &trans   &trans   &kp MINU   &kp EQUAL   &kp LBKT     &kp RBKT   &kp BSLH
+&kp DEL    &trans   &trans   &trans   &trans   &trans   &trans   &kp MINUS  &kp EQUAL   &kp LBKT     &kp RBKT   &kp BSLH
 &trans     &trans   &trans   &trans   &trans   &trans   &trans   &trans     &trans      &kp PG_DN    &kp PG_UP  &trans
 &trans     &trans   &trans   &trans   &trans   &trans   &trans   &trans     &trans      &trans       &trans     &trans
             >;
