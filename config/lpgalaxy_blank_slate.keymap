@@ -22,6 +22,12 @@
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
 
+&soft_off {
+  compatible = "zmk,soft-off";
+  label = "Soft Off";
+  bindings = <&kp LEFT &kp RIGHT &kp UP &kp DOWN>;
+};
+
 #define BT(n) BT_SEL n
 
 / {
@@ -47,12 +53,13 @@
     tap_dances {
     	shifty: shift_caps_word {
 		    compatible = "zmk,behavior-tap-dance";
-		    label = "TD_SHIFTY";
+		    label = "TD_SHIFTY"s
 		    #binding-cells = <0>;
 		    tapping-term-ms = <150>;
 		    bindings = <&kp LSHFT>, <&caps_word>;
 	    };
     };
+
 
 // Conditional layer only when we have less thumb keys
     cond_layers {
