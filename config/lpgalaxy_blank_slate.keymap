@@ -23,7 +23,7 @@
 &lt { quick_tap_ms = <200>; };
 
 &soft_off {
-  hold-tim-ms = <2000>; // 2 seconds to turn off keyboard
+  hold-time-ms = <2000>; // 2 seconds to turn off keyboard
 };
 
 #define BT(n) BT_SEL n
