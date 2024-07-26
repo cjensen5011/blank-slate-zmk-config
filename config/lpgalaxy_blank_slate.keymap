@@ -22,10 +22,6 @@
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
 
-&soft_off {
-  hold-time-ms = <2000>; // 2 seconds to turn off keyboard
-};
-
 #define BT(n) BT_SEL n
 
 / {
